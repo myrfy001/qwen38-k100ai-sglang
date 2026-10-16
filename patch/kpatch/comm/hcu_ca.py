@@ -10,7 +10,7 @@
     64    100.8    43.6    2.31×
   与 RCCL 最大差 ≤0.016（求和顺序不同，非逐位）；图外 10 轮变输入 0 错。
   decode 每轮约 170 次 all-reduce，按表每轮约省 5 ms。
-原状：启动参数 --disable-custom-all-reduce（K100 上 aiter CA 段错误），ca_comm 恒为 None。
+原状：启动参数 --disable-custom-all-reduce（K500SM_AI 上 aiter CA 段错误），ca_comm 恒为 None。
 改法：GroupCoordinator 初始化后，world_size≥2 且 ca_comm 为空时，建 vllm_hcu 的 CustomAllreduce（is_fully_connected 强制真，
   走标准内核；_pcie 变体默认派发有竞态，见 Qwen 09-14 记录）。框架已有的 ca 分发/图捕获注册（graph_capture 里 ca_comm.capture()）原样生效；
   只接管字节数 < SGLANG_HCU_CA_MAX（默认 512 KiB）的张量，更大的仍走 RCCL / quant_ar。

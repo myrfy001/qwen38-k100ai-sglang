@@ -1,4 +1,4 @@
-Qwen3.8-27B INT8 on K100-AI (SGLang) — optimization package
+Qwen3.8-27B INT8 on K500SM_AI (SGLang) — optimization package
 
 本包中的补丁（patch/）、自写内核（kernels/）、调优表（config/）与脚本（scripts/、bench/ 中除 benchmark.py 外、tools/）
 为参赛者原创，按 Apache License 2.0 发布（见 LICENSE）。

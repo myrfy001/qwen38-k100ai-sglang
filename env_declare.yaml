@@ -2,7 +2,7 @@
 group: 开放组·其他卡型
 track: SGLang
 hardware:
-  gpu_model: K100-AI（驱动设备名 K500SM_AI，gfx928；64 GB HBM2E/卡）
+  gpu_model: K500SM_AI（gfx928；64 GB HBM2E/卡）
   gpu_count: 2                       # 同机 4 卡，仅用卡 0、1（HIP_VISIBLE_DEVICES=0,1）
   interconnect: PCIe（hy-smi --showtopo：Link Type PCIE，Hops 3；无 xGMI）
   cpu: Hygon C86 7185 32-core Processor（32 逻辑核，4 NUMA 节点）

@@ -1,7 +1,7 @@
-# Qwen3.8-27B INT8 · K100-AI ×2 · SGLang 赛道 — 复现说明
+# Qwen3.8-27B INT8 · K500SM_AI ×2 · SGLang 赛道 — 复现说明
 
 本包在**未改动镜像源码**的前提下，用 PYTHONPATH 覆盖层补丁（`patch/`）+ 自写 HIP/Triton 内核（`kernels/`）+ 调优表（`config/`）
-把 Qwen3.8-27B-Channel-INT8-w8a8 在两张 K100-AI（TP2）上的吞吐与时延做到报告中的数字。所有优化项由 `scripts/run.sh` 默认打开，
+把 Qwen3.8-27B-Channel-INT8-w8a8 在两张 K500SM_AI（TP2）上的吞吐与时延做到报告中的数字。所有优化项由 `scripts/run.sh` 默认打开，
 每项都能单独关闭做对照；`Q38_BASELINE=1` 即自测参照配置（镜像原生 sglang，不加载补丁）。
 
 ```
@@ -116,7 +116,7 @@ bash scripts/bench.sh <目录> fixed                                            
 
 ## 6. 已知边界与代价
 
-- 仅验证 TP=2、K100-AI（gfx928）、本镜像版本；自写内核以 `--offload-arch=gfx928` 编译，其他卡型需重编并重新对拍。
+- 仅验证 TP=2、K500SM_AI（gfx928）、本镜像版本；自写内核以 `--offload-arch=gfx928` 编译，其他卡型需重编并重新对拍。
 - 与原实现不逐位一致的有五项（预填充量化通信为唯一有损项；其余为求和次序不同，argmax 或误差量级与原实现一致），清单见报告 §5「数值一致性」；四项精度对自测参照配置的配对结果见报告 §4.3。
 - `--disable-radix-cache` 为 no_buffer 策略所必需，多轮对话场景不享受前缀缓存。
 - 自写内核在 `bs<12` 的验证步、`q<阈值` 的预填充保留厂商核，由补丁按形状自动选择。

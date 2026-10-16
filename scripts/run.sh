@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Qwen3.8-27B-Channel-INT8-w8a8 · K100-AI ×2（TP2）· SGLang 0.5.12+das185 一键启动（镜像 sglang:0.5.12-ubuntu22.04-dtk2604-py3.10）。
+# Qwen3.8-27B-Channel-INT8-w8a8 · K500SM_AI ×2（TP2）· SGLang 0.5.12+das185 一键启动（镜像 sglang:0.5.12-ubuntu22.04-dtk2604-py3.10）。
 # 用法（容器内）：bash scripts/run.sh [追加 sglang 参数...]
 #   MODEL=权重目录（默认 /models/q38）  PORT=30000  HIP_VISIBLE_DEVICES=0,1
 #   全部优化项默认打开（= 报告定稿配置）。任一开关设 0（表类设空串）即关闭该项做对照：SGLANG_VERIFY_ATTN=0 bash scripts/run.sh
@@ -10,7 +10,7 @@ ROOT=$(cd "$(dirname "$0")/.." && pwd)
 MODEL=${MODEL:-/models/q38}; PORT=${PORT:-30000}
 export HIP_VISIBLE_DEVICES=${HIP_VISIBLE_DEVICES:-0,1}
 
-# ---- 平台必需项（K100-AI 两个前序项目沿用；缺任一项会挂起或崩溃）----
+# ---- 平台必需项（K500SM_AI 两个前序项目沿用；缺任一项会挂起或崩溃）----
 export GPU_MAX_HW_QUEUES=${GPU_MAX_HW_QUEUES:-2}            # 硬件队列限 2：同机其他卡有进程时队列超额会挂起
 export HSA_FORCE_FINE_GRAIN_PCIE=${HSA_FORCE_FINE_GRAIN_PCIE:-1}
 export SGLANG_USE_LIGHTOP=1 SGLANG_USE_AITER_LINEAR_ATTN=1 SGLANG_USE_CAUSAL_CONV1D=1 SGLANG_ENABLE_SPEC_V2=1
