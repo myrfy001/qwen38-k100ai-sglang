@@ -1,5 +1,5 @@
 # 环境声明（赛题 5.2 模板字段，机器可读）。原始输出见 logs/01_hardware_driver/（hy-smi、拓扑、lscpu、free、uname、pip list）。
-group: 主力组 K100-AI
+group: 开放组·其他卡型
 track: SGLang
 hardware:
   gpu_model: K100-AI（驱动设备名 K500SM_AI，gfx928；64 GB HBM2E/卡）
