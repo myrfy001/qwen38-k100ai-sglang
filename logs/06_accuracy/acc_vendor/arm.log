@@ -1,0 +1,40 @@
+MODE=cmd 追加参数= 开关=
+READY 200 10:24:25
+      2 attention_backend='fa3'
+      1 Capture cuda graph end. Time elapsed: 16.78 s. mem usage=0.79 GB. avail mem=16.97 GB.
+      1 Capture cuda graph end. Time elapsed: 16.84 s. mem usage=0.79 GB. avail mem=16.97 GB.
+      1 max_running_requests=28
+      1 max_running_requests=48
+      1 max_total_num_tokens=380224
+      2 quantization='w8a8_int8'
+      1 speculative_algorithm='EAGLE'
+[rwqa] 共 5 题，已完成 0，待做 5，并发 5
+/workspace/q38/runs/acc_vendor/smoke_rwqa.jsonl：4/5 = 80.00%  结束原因 {'stop': 5}  平均生成 1047 token  思考块非空 5/5
+[mathvision] 共 5 题，已完成 0，待做 5，并发 5
+/workspace/q38/runs/acc_vendor/smoke_mathvision.jsonl：2/5 = 40.00%  结束原因 {'stop': 5}  平均生成 7441 token  思考块非空 5/5
+[lcb] 共 5 题，已完成 0，待做 5，并发 5
+/workspace/q38/runs/acc_vendor/smoke_lcb.jsonl：5/5 = 100.00%  结束原因 {'stop': 5}  平均生成 8518 token  思考块非空 5/5
+[gsm8k] 共 5 题，已完成 0，待做 5，并发 5
+/workspace/q38/runs/acc_vendor/smoke_gsm8k.jsonl：5/5 = 100.00%  结束原因 {'stop': 5}  平均生成 373 token  思考块非空 5/5
+  1250/1319 本次正确率 0.966 用时 2132s
+  1300/1319 本次正确率 0.968 用时 2132s
+/workspace/q38/runs/acc_vendor/acc_gsm8k.jsonl：1276/1319 = 96.74%  结束原因 {'stop': 1307, 'length': 12}  平均生成 592 token  思考块非空 1319/1319
+  700/765 本次正确率 0.813 用时 2086s
+  750/765 本次正确率 0.811 用时 2177s
+/workspace/q38/runs/acc_vendor/acc_rwqa.jsonl：621/765 = 81.18%  结束原因 {'stop': 743, 'length': 22}  平均生成 741 token  思考块非空 765/765
+  250/304 本次正确率 0.808 用时 4131s
+  300/304 本次正确率 0.813 用时 4527s
+/workspace/q38/runs/acc_vendor/acc_mathvision.jsonl：248/304 = 81.58%  结束原因 {'stop': 288, 'length': 16}  平均生成 5613 token  思考块非空 304/304
+  100/175 本次正确率 0.550 用时 9480s
+  150/175 本次正确率 0.593 用时 9840s
+/workspace/q38/runs/acc_vendor/acc_lcb.jsonl：106/175 = 60.57%  结束原因 {'stop': 110, 'length': 65}  平均生成 16284 token  思考块非空 175/175
+/workspace/q38/runs/acc_vendor/acc_gsm8k.jsonl：1276/1319 = 96.74%  结束原因 {'stop': 1307, 'length': 12}  平均生成 592 token  思考块非空 1319/1319
+/workspace/q38/runs/acc_vendor/acc_lcb.jsonl：106/175 = 60.57%  结束原因 {'stop': 110, 'length': 65}  平均生成 16284 token  思考块非空 175/175
+/workspace/q38/runs/acc_vendor/acc_mathvision.jsonl：248/304 = 81.58%  结束原因 {'stop': 288, 'length': 16}  平均生成 5613 token  思考块非空 304/304
+/workspace/q38/runs/acc_vendor/acc_rwqa.jsonl：621/765 = 81.18%  结束原因 {'stop': 743, 'length': 22}  平均生成 741 token  思考块非空 765/765
+【日志体检】acc_vendor：❌ 2 项 ⚠ 1 项；补丁已安装 0 个、有生效标记 0 个；压测行 0
+❌ 显存 160 行，首条：[2026-10-11 13:32:25 TP1] KV cache pool is full. Retract requests. #retracted_reqs: 1, #new_tokens_gained: 1536, #mamba_num_gained: 3, #new_token_ratio: 0.0980 
+⚠ 调度退让 160 行，首条：[2026-10-11 13:32:25 TP1] KV cache pool is full. Retract requests. #retracted_reqs: 1, #new_tokens_gained: 1536, #mamba_num_gained: 3, #new_token_ratio: 0.0980 
+❌ 配置回落 12 行，首条：Capturing batches (bs=28 avail_mem=17.66 GB):   0%|          | 0/18 [00:00<?, ?it/s][aiter] fused_sigmoid_gating_delta_rule_update_recurrent config not found at
+CLEANUP_OK 16:02:56
+ALLDONE 16:02:56

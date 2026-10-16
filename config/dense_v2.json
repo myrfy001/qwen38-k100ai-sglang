@@ -1,0 +1,1378 @@
+{
+ "17408_5120": {
+  "1": {
+   "impl": "lightop",
+   "cfg": [
+    8,
+    16,
+    256,
+    1,
+    false
+   ],
+   "us": 125.3,
+   "default_us": 221.99
+  },
+  "2": {
+   "impl": "lightop",
+   "cfg": [
+    8,
+    16,
+    512,
+    1,
+    false
+   ],
+   "us": 127.12,
+   "default_us": 221.48
+  },
+  "4": {
+   "impl": "lightop",
+   "cfg": [
+    8,
+    16,
+    256,
+    1,
+    false
+   ],
+   "us": 128.25,
+   "default_us": 220.97
+  },
+  "8": {
+   "impl": "lightop",
+   "cfg": [
+    8,
+    16,
+    512,
+    1,
+    false
+   ],
+   "us": 130.76,
+   "default_us": 218.21
+  },
+  "12": {
+   "impl": "lightop",
+   "cfg": [
+    8,
+    16,
+    512,
+    1,
+    false
+   ],
+   "us": 133.87,
+   "default_us": 220.15
+  },
+  "16": {
+   "impl": "lightop",
+   "cfg": [
+    8,
+    16,
+    512,
+    1,
+    false
+   ],
+   "us": 140.05,
+   "default_us": 221.15
+  },
+  "24": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 16,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 2
+   },
+   "us": 155.41,
+   "default_us": 173.0
+  },
+  "32": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 16,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 2
+   },
+   "us": 160.74,
+   "default_us": 175.55
+  },
+  "48": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 1,
+    "num_warps": 4
+   },
+   "us": 166.56,
+   "default_us": 211.9
+  },
+  "64": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 0,
+    "num_warps": 4
+   },
+   "us": 170.87,
+   "default_us": 219.38
+  },
+  "96": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 0,
+    "num_warps": 4
+   },
+   "us": 201.74,
+   "default_us": 248.98
+  },
+  "128": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 236.94,
+   "default_us": 255.36
+  },
+  "192": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 1,
+    "num_warps": 8
+   },
+   "us": 271.38,
+   "default_us": 462.59
+  },
+  "256": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 0,
+    "num_warps": 8
+   },
+   "us": 345.58,
+   "default_us": 469.01
+  },
+  "384": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 128,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 128,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 8
+   },
+   "us": 441.21,
+   "default_us": 615.24
+  },
+  "512": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 128,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 0,
+    "num_warps": 4
+   },
+   "us": 551.92,
+   "default_us": 776.1
+  },
+  "1024": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 128,
+    "BLOCK_SIZE_N": 256,
+    "BLOCK_SIZE_K": 64,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 1022.89,
+   "default_us": 1514.1
+  },
+  "2048": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 1856.27,
+   "default_us": 2516.59
+  },
+  "3072": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 2689.85,
+   "default_us": 3537.49
+  },
+  "4096": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 3743.48,
+   "default_us": 5030.45
+  },
+  "6144": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 5359.99,
+   "default_us": 7079.81
+  },
+  "8192": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 7244.34,
+   "default_us": 9589.56
+  },
+  "12288": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 10739.6,
+   "default_us": 14141.28
+  },
+  "16384": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 14231.18,
+   "default_us": 18693.05
+  }
+ },
+ "5120_3072": {
+  "1": {
+   "impl": "lightop",
+   "cfg": [
+    1,
+    16,
+    256,
+    1,
+    false
+   ],
+   "us": 25.01,
+   "default_us": 33.59
+  },
+  "2": {
+   "impl": "lightop",
+   "cfg": [
+    1,
+    16,
+    512,
+    1,
+    true
+   ],
+   "us": 25.17,
+   "default_us": 34.96
+  },
+  "4": {
+   "impl": "lightop",
+   "cfg": [
+    1,
+    16,
+    256,
+    1,
+    true
+   ],
+   "us": 25.68,
+   "default_us": 35.38
+  },
+  "8": {
+   "impl": "lightop",
+   "cfg": [
+    1,
+    16,
+    512,
+    1,
+    false
+   ],
+   "us": 26.04,
+   "default_us": 35.93
+  },
+  "12": {
+   "impl": "lightop",
+   "cfg": [
+    1,
+    16,
+    256,
+    1,
+    true
+   ],
+   "us": 27.21,
+   "default_us": 36.08
+  },
+  "16": {
+   "impl": "lightop",
+   "cfg": [
+    1,
+    16,
+    512,
+    1,
+    true
+   ],
+   "us": 27.77,
+   "default_us": 35.87
+  },
+  "24": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 16,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 1,
+    "num_warps": 2
+   },
+   "us": 34.16,
+   "default_us": 40.31
+  },
+  "32": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 16,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 0,
+    "num_warps": 4
+   },
+   "us": 34.8,
+   "default_us": 40.64
+  },
+  "48": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 16,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 0,
+    "num_warps": 2
+   },
+   "us": 39.34,
+   "default_us": 44.54
+  },
+  "64": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 32,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 0,
+    "num_warps": 2
+   },
+   "us": 39.76,
+   "default_us": 44.33
+  },
+  "96": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 1,
+    "num_warps": 4
+   },
+   "us": 45.58,
+   "default_us": 55.72
+  },
+  "128": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 0,
+    "num_warps": 4
+   },
+   "us": 56.12,
+   "default_us": 56.12
+  },
+  "192": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 59.26,
+   "default_us": 101.54
+  },
+  "256": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 128,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 77.12,
+   "default_us": 101.87
+  },
+  "384": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 128,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 87.42,
+   "default_us": 112.18
+  },
+  "512": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 64,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 118.11,
+   "default_us": 196.24
+  },
+  "1024": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 128,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 128,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 8
+   },
+   "us": 213.97,
+   "default_us": 313.54
+  },
+  "2048": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 128,
+    "BLOCK_SIZE_N": 256,
+    "BLOCK_SIZE_K": 64,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 388.28,
+   "default_us": 616.77
+  },
+  "3072": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 485.93,
+   "default_us": 648.14
+  },
+  "4096": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 697.14,
+   "default_us": 952.46
+  },
+  "6144": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 974.37,
+   "default_us": 1293.68
+  },
+  "8192": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 1395.34,
+   "default_us": 1901.7
+  },
+  "12288": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 1953.88,
+   "default_us": 2578.34
+  },
+  "16384": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 2654.6,
+   "default_us": 3519.23
+  }
+ },
+ "5120_8704": {
+  "1": {
+   "impl": "lightop",
+   "cfg": [
+    1,
+    16,
+    256,
+    1,
+    true
+   ],
+   "us": 66.86,
+   "default_us": 78.37
+  },
+  "2": {
+   "impl": "lightop",
+   "cfg": [
+    8,
+    16,
+    512,
+    1,
+    false
+   ],
+   "us": 66.65,
+   "default_us": 83.6
+  },
+  "4": {
+   "impl": "lightop",
+   "cfg": [
+    8,
+    16,
+    256,
+    1,
+    false
+   ],
+   "us": 66.37,
+   "default_us": 84.08
+  },
+  "8": {
+   "impl": "lightop",
+   "cfg": [
+    8,
+    16,
+    256,
+    1,
+    false
+   ],
+   "us": 67.68,
+   "default_us": 82.47
+  },
+  "12": {
+   "impl": "lightop",
+   "cfg": [
+    4,
+    16,
+    512,
+    1,
+    false
+   ],
+   "us": 68.09,
+   "default_us": 83.4
+  },
+  "16": {
+   "impl": "lightop",
+   "cfg": [
+    1,
+    16,
+    256,
+    1,
+    true
+   ],
+   "us": 73.09,
+   "default_us": 83.07
+  },
+  "24": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 16,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 0,
+    "num_warps": 2
+   },
+   "us": 80.68,
+   "default_us": 94.36
+  },
+  "32": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 16,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 0,
+    "num_warps": 2
+   },
+   "us": 82.73,
+   "default_us": 93.8
+  },
+  "48": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 32,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 0,
+    "num_warps": 2
+   },
+   "us": 95.27,
+   "default_us": 104.9
+  },
+  "64": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 32,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 1,
+    "num_warps": 2
+   },
+   "us": 96.92,
+   "default_us": 103.84
+  },
+  "96": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 107.44,
+   "default_us": 132.03
+  },
+  "128": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 0,
+    "num_warps": 4
+   },
+   "us": 133.44,
+   "default_us": 133.44
+  },
+  "192": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 141.84,
+   "default_us": 247.42
+  },
+  "256": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 128,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 192.75,
+   "default_us": 248.18
+  },
+  "384": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 128,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 215.91,
+   "default_us": 274.32
+  },
+  "512": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 128,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 64,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 298.06,
+   "default_us": 496.54
+  },
+  "1024": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 128,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 128,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 8
+   },
+   "us": 535.12,
+   "default_us": 786.16
+  },
+  "2048": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 128,
+    "BLOCK_SIZE_N": 256,
+    "BLOCK_SIZE_K": 64,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 1021.28,
+   "default_us": 1588.54
+  },
+  "3072": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 1267.36,
+   "default_us": 1635.95
+  },
+  "4096": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 1836.65,
+   "default_us": 2415.84
+  },
+  "6144": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 2549.77,
+   "default_us": 3256.92
+  },
+  "8192": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 128,
+    "BLOCK_SIZE_N": 256,
+    "BLOCK_SIZE_K": 64,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 3735.03,
+   "default_us": 4835.2
+  },
+  "12288": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 5101.74,
+   "default_us": 6494.2
+  },
+  "16384": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 6934.19,
+   "default_us": 8895.05
+  }
+ },
+ "7168_5120": {
+  "1": {
+   "impl": "lightop",
+   "cfg": [
+    8,
+    16,
+    512,
+    1,
+    false
+   ],
+   "us": 54.34,
+   "default_us": 59.46
+  },
+  "2": {
+   "impl": "lightop",
+   "cfg": [
+    8,
+    16,
+    256,
+    1,
+    false
+   ],
+   "us": 55.03,
+   "default_us": 61.07
+  },
+  "4": {
+   "impl": "lightop",
+   "cfg": [
+    8,
+    16,
+    512,
+    1,
+    false
+   ],
+   "us": 55.63,
+   "default_us": 61.07
+  },
+  "8": {
+   "impl": "lightop",
+   "cfg": [
+    8,
+    16,
+    512,
+    1,
+    false
+   ],
+   "us": 56.79,
+   "default_us": 61.29
+  },
+  "12": {
+   "impl": "lightop",
+   "cfg": [
+    8,
+    16,
+    256,
+    1,
+    false
+   ],
+   "us": 57.66,
+   "default_us": 60.97
+  },
+  "16": {
+   "impl": "lightop",
+   "cfg": [
+    1,
+    16,
+    256,
+    1,
+    false
+   ],
+   "us": 59.09,
+   "default_us": 60.95
+  },
+  "24": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 32,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 0,
+    "num_warps": 4
+   },
+   "us": 62.29,
+   "default_us": 73.57
+  },
+  "32": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 32,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 1,
+    "num_warps": 2
+   },
+   "us": 64.57,
+   "default_us": 73.31
+  },
+  "48": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 32,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 70.65,
+   "default_us": 89.31
+  },
+  "64": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 32,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 73.84,
+   "default_us": 87.45
+  },
+  "96": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 91.0,
+   "default_us": 98.14
+  },
+  "128": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 91.78,
+   "default_us": 96.0
+  },
+  "192": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 128,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 127.13,
+   "default_us": 172.16
+  },
+  "256": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 128,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 141.23,
+   "default_us": 173.39
+  },
+  "384": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 64,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 193.24,
+   "default_us": 306.27
+  },
+  "512": {
+   "impl": "hip",
+   "cfg": "DBUF=0 BK=128 PAD=8",
+   "us": 216.33,
+   "default_us": 329.19
+  },
+  "1024": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 370.49,
+   "default_us": 639.64
+  },
+  "2048": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 741.66,
+   "default_us": 1002.83
+  },
+  "3072": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 1126.29,
+   "default_us": 1489.46
+  },
+  "4096": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 1499.05,
+   "default_us": 1999.25
+  },
+  "6144": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 2259.93,
+   "default_us": 2996.57
+  },
+  "8192": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 3023.42,
+   "default_us": 3993.2
+  },
+  "12288": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 4545.65,
+   "default_us": 5981.18
+  },
+  "16384": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 5798.63,
+   "default_us": 7529.14
+  }
+ },
+ "8192_5120": {
+  "1": {
+   "impl": "lightop",
+   "cfg": [
+    1,
+    32,
+    512,
+    1,
+    false
+   ],
+   "us": 65.32,
+   "default_us": 76.78
+  },
+  "2": {
+   "impl": "lightop",
+   "cfg": [
+    1,
+    32,
+    512,
+    1,
+    false
+   ],
+   "us": 65.84,
+   "default_us": 74.08
+  },
+  "4": {
+   "impl": "lightop",
+   "cfg": [
+    8,
+    16,
+    512,
+    1,
+    false
+   ],
+   "us": 67.32,
+   "default_us": 74.5
+  },
+  "8": {
+   "impl": "lightop",
+   "cfg": [
+    1,
+    32,
+    512,
+    1,
+    true
+   ],
+   "us": 67.86,
+   "default_us": 73.38
+  },
+  "12": {
+   "impl": "lightop",
+   "cfg": [
+    4,
+    16,
+    256,
+    1,
+    false
+   ],
+   "us": 67.79,
+   "default_us": 75.94
+  },
+  "16": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 32,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 1,
+    "num_warps": 2
+   },
+   "us": 69.56,
+   "default_us": 75.38
+  },
+  "24": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 32,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 1,
+    "num_warps": 2
+   },
+   "us": 71.86,
+   "default_us": 87.9
+  },
+  "32": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 32,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 1,
+    "num_warps": 2
+   },
+   "us": 76.29,
+   "default_us": 88.29
+  },
+  "48": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 32,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 1,
+    "num_warps": 4
+   },
+   "us": 85.02,
+   "default_us": 111.37
+  },
+  "64": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 1,
+    "num_warps": 4
+   },
+   "us": 89.18,
+   "default_us": 111.64
+  },
+  "96": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 32,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 1,
+    "num_warps": 4
+   },
+   "us": 97.72,
+   "default_us": 127.35
+  },
+  "128": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 64,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 0,
+    "num_warps": 4
+   },
+   "us": 126.08,
+   "default_us": 126.08
+  },
+  "192": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 256,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 1,
+    "num_warps": 8
+   },
+   "us": 140.22,
+   "default_us": 294.02
+  },
+  "256": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 64,
+    "GROUP_SIZE_M": 4,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 189.92,
+   "default_us": 296.96
+  },
+  "384": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 128,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 128,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 8
+   },
+   "us": 215.84,
+   "default_us": 319.84
+  },
+  "512": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 64,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 128,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 1,
+    "num_warps": 8
+   },
+   "us": 314.14,
+   "default_us": 457.62
+  },
+  "1024": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 128,
+    "BLOCK_SIZE_N": 128,
+    "BLOCK_SIZE_K": 128,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 8
+   },
+   "us": 528.4,
+   "default_us": 766.58
+  },
+  "2048": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 128,
+    "BLOCK_SIZE_N": 256,
+    "BLOCK_SIZE_K": 64,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 992.71,
+   "default_us": 1470.03
+  },
+  "3072": {
+   "impl": "hip",
+   "cfg": "DBUF=0 BK=128 PAD=8",
+   "us": 1495.8,
+   "default_us": 1960.37
+  },
+  "4096": {
+   "impl": "triton",
+   "cfg": {
+    "BLOCK_SIZE_M": 128,
+    "BLOCK_SIZE_N": 256,
+    "BLOCK_SIZE_K": 64,
+    "GROUP_SIZE_M": 8,
+    "SPLIT_K": 1,
+    "num_stages": 2,
+    "num_warps": 4
+   },
+   "us": 1872.78,
+   "default_us": 2476.73
+  },
+  "6144": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 2720.22,
+   "default_us": 3482.12
+  },
+  "8192": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 3562.07,
+   "default_us": 4484.1
+  },
+  "12288": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 5232.79,
+   "default_us": 6491.93
+  },
+  "16384": {
+   "impl": "hip",
+   "cfg": "DBUF=0 WN=4 LBOUND=512 PAD=8",
+   "us": 7157.37,
+   "default_us": 8964.09
+  }
+ }
+}

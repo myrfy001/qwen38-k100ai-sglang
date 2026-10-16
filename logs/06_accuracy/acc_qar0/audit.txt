@@ -1,0 +1,3 @@
+【日志体检】acc_qar0：❌ 1 项 ⚠ 1 项；补丁已安装 11 个、有生效标记 10 个；压测行 0
+⚠ 补丁 [pair_loop] 已安装 4 次但从未「首次真正生效」
+❌ 配置回落 4 行，首条：[aiter] chunk_fwd_o config not found at /usr/local/lib/python3.10/dist-packages/aiter/ops/triton/configs/chunk_fwd_o/chunk_fwd_o-gfx928.json, using default {'BK

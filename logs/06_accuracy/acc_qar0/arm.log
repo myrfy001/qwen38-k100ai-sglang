@@ -1,0 +1,20 @@
+MODE=cmd 追加参数=--disable-radix-cache 开关=Q38_CHUNK=4096 Q38_MAMBA=no_buffer SGLANG_ADAPTIVE_CHUNK=1 SGLANG_ADAPTIVE_CHUNK_TIERS=8192:16384 SGLANG_CHUNK_H_CFG=1 SGLANG_CONV1D_OWN=1 SGLANG_DENSE_CFG=/workspace/q38/tune/dense_v2.json SGLANG_DISABLE_CONSECUTIVE_PREFILL_OVERLAP=1 SGLANG_GDN_CFG=1 SGLANG_GDN_PF_CFG=1 SGLANG_GDN_REPLAY=1 SGLANG_GDN_TABLE=/workspace/q38/tune/gdn_aiter_nb.json SGLANG_LMH_OWN_SO=/tmp/q38_lmh_own2.so SGLANG_LMH_OWN_TABLE=/workspace/q38/tune/lmh_own_0.csv SGLANG_LMH_TABLE=/workspace/q38/tune/lmh_final_0.csv SGLANG_NORM_QUANT=1 SGLANG_PAIR_PREFILL=1 SGLANG_PAIR_PREFILL_ALLOW_LOGPROB=1 SGLANG_PAIR_PREFILL_MOE_OVERLAP=1 SGLANG_PF_ATTN=1 SGLANG_QAR_WORLDS=2 SGLANG_QUANT_AR=0 SGLANG_VERIFY_ATTN=1 
+READY 200 18:07:17
+      2 attention_backend='fa3'
+      1 Capture cuda graph end. Time elapsed: 21.75 s. mem usage=1.19 GB. avail mem=11.04 GB.
+      1 Capture cuda graph end. Time elapsed: 21.94 s. mem usage=1.19 GB. avail mem=11.04 GB.
+      2 max_running_requests=48
+      1 max_total_num_tokens=1048064
+      2 quantization='w8a8_int8'
+      1 speculative_algorithm='EAGLE'
+  1250/1319 本次正确率 0.972 用时 1211s
+  1300/1319 本次正确率 0.973 用时 1211s
+/workspace/q38/runs/acc_qar0/acc_gsm8k.jsonl：1283/1319 = 97.27%  结束原因 {'stop': 1309, 'length': 10}  平均生成 574 token  思考块非空 1319/1319
+  250/304 本次正确率 0.840 用时 2404s
+  300/304 本次正确率 0.843 用时 2501s
+/workspace/q38/runs/acc_qar0/acc_mathvision.jsonl：257/304 = 84.54%  结束原因 {'stop': 291, 'length': 13}  平均生成 5581 token  思考块非空 304/304
+【日志体检】acc_qar0：❌ 1 项 ⚠ 1 项；补丁已安装 11 个、有生效标记 10 个；压测行 0
+⚠ 补丁 [pair_loop] 已安装 4 次但从未「首次真正生效」
+❌ 配置回落 4 行，首条：[aiter] chunk_fwd_o config not found at /usr/local/lib/python3.10/dist-packages/aiter/ops/triton/configs/chunk_fwd_o/chunk_fwd_o-gfx928.json, using default {'BK
+CLEANUP_OK 19:09:24
+ALLDONE 19:09:25

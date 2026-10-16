@@ -1,0 +1,15 @@
+Qwen3.8-27B INT8 on K100-AI (SGLang) — optimization package
+
+本包中的补丁（patch/）、自写内核（kernels/）、调优表（config/）与脚本（scripts/、bench/ 中除 benchmark.py 外、tools/）
+为参赛者原创，按 Apache License 2.0 发布（见 LICENSE）。
+
+第三方部分：
+- bench/benchmark.py：主办方在官方基线帖中提供的压测脚本，原样收录、未作任何修改，仅用于按官方口径复现测量；版权归原作者。
+- patch/ 以运行时覆盖（PYTHONPATH + sitecustomize）的方式替换 SGLang（Apache-2.0）中的部分函数，个别替换函数以 SGLang
+  原函数为蓝本改写；SGLang 本体不随本包分发，由官方镜像提供。
+- 运行时调用的 lightop、aiter、vllm_hcu、rocBLAS、RCCL 等库均由官方镜像提供，不随本包分发。
+
+参考与致谢：
+- 启动参数中的 EAGLE 投机配置（num_steps 3 / topk 1 / num_draft_tokens 4）、--attention-backend fa3、
+  --mem-fraction-static 0.80、--cuda-graph-max-bs 64 取自作品提交区公开作品（论坛用户 codingmiao）的启动配置，
+  作为本作品的起点；本包未包含其任何代码。

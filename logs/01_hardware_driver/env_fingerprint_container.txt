@@ -1,0 +1,45 @@
+## 容器 Sun Oct 11 01:16:37 AM CST 2026
+5.15.0-119-generic
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+## DTK
+/opt/dtk
+26.0426.0426.04## python 包
+aiter                                    0.1.5+das185.dtk2604.torch2100.2608131714.gb0979d
+flash_attn                               2.8.3+das185.dtk2604.torch2100.2608132155.g9febea
+flash_mla                                1.2.0+das185.dtk2604.torch2100.2608131631.gc33d94
+lightop                                  0.6.0+das.dtk2604.torch2100.2608121706.g09a4f3
+sglang                                   0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025
+sglang-kernel                            0.4.2.post2+das185.dtk2604.torch2100.2608121934.gcbf025
+sglang-router                            0.3.2+das.dtk2604.torch2100.2608030956.g3eb90b
+torch                                    2.10.0+das.opt1.dtk2604.2608131652.g28498c
+torchvision                              0.25.0+das185.dtk2604.torch2100.2608130858.gdcd044
+transformers                             5.6.0
+triton                                   3.6.0+das185.dtk2604.torch2100.2608131719.gb796b1
+vllm                                     0.21.0+das.dtk2604.torch2100.2606111143.g8c979d
+vllm-hcu                                 0.21.0+das.dtk2604.torch2100.2608132222.g386d02
+## CPU/内存
+CPU(s):                               32
+Model name:                           Hygon C86 7185 32-core Processor
+NUMA node(s):                         4
+               total        used        free      shared  buff/cache   available
+Mem:             502          47          35           0         419         451
+schedutil
+## hy-smi
+0       62.0C    294.0W     manual   300.0W     99%        100.0%    Normal   
+1       64.0C    294.0W     manual   300.0W     97%        97.5%     Normal   
+2       51.0C    136.0W     manual   300.0W     97%        0.0%      Normal   
+3       52.0C    132.0W     manual   300.0W     88%        0.0%      Normal   
+Driver Version: 6.3.30-V1.4.1a
+## 拓扑
+Link accessible between HCUs
+          HCU[0]    HCU[1]    HCU[2]    HCU[3]    
+HCU[0]    TRUE      TRUE      TRUE      TRUE      
+HCU[1]    TRUE      TRUE      TRUE      TRUE      
+HCU[2]    TRUE      TRUE      TRUE      TRUE      
+HCU[3]    TRUE      TRUE      TRUE      TRUE      
+Weight between HCUs
+          HCU[0]    HCU[1]    HCU[2]    HCU[3]    
+HCU[0]    0         0         0         0         
+HCU[1]    0         0         0         0         
+HCU[2]    0         0         0         0         
+HCU[3]    0         0         0         0         

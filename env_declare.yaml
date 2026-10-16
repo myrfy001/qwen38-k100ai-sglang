@@ -1,0 +1,68 @@
+# 环境声明（赛题 5.2 模板字段，机器可读）。原始输出见 logs/01_hardware_driver/（hy-smi、拓扑、lscpu、free、uname、pip list）。
+group: 主力组 K100-AI
+track: SGLang
+hardware:
+  gpu_model: K100-AI（驱动设备名 K500SM_AI，gfx928；64 GB HBM2E/卡）
+  gpu_count: 2                       # 同机 4 卡，仅用卡 0、1（HIP_VISIBLE_DEVICES=0,1）
+  interconnect: PCIe（hy-smi --showtopo：Link Type PCIE，Hops 3；无 xGMI）
+  cpu: Hygon C86 7185 32-core Processor（32 逻辑核，4 NUMA 节点）
+  memory_gb: 502
+  storage: NVMe 1.7 TB（系统盘，权重与数据集同盘）
+  cpu_governor: schedutil             # 未改机器级设置；短输入 TTFT 对调频策略敏感，复现时保持一致即可
+software:
+  os: Ubuntu 22.04.5 LTS
+  kernel: 5.15.0-119-generic
+  driver: hycu 6.3.30-V1.4.1a
+  dtk: 26.04（容器内 /opt/dtk，hipcc = dcc 25.10.0 / clang 17）
+  container_image: harbor.sourcefind.cn:5443/dcu/admin/base/sglang:0.5.12-ubuntu22.04-dtk2604-py3.10
+  container_mounts:
+    - /opt/hyhal:/opt/hyhal:ro
+    - <权重目录>:/models/q38:ro
+    - <本包与数据集>:/workspace/q38
+framework:
+  inference: SGLang 0.5.12+das185.dtk2604.torch2100（镜像自带，源码未改动；优化以 PYTHONPATH 覆盖层补丁 patch/ 形式加载）
+  key_deps:
+    torch: 2.10.0+das.opt1.dtk2604
+    triton: 3.6.0+das185.dtk2604
+    sglang-kernel: 0.4.2.post2+das185.dtk2604
+    lightop: 0.6.0+das.dtk2604
+    aiter: 0.1.5+das185.dtk2604
+    flash_attn: 2.8.3+das185.dtk2604
+    vllm-hcu: 0.21.0+das.dtk2604
+    transformers: 5.6.0
+model:
+  name: Qwen3.8-27B-Channel-INT8-w8a8
+  source: 光合开发者社区 / ModelScope 官方发布的 Channel-INT8 w8a8 权重（含 EAGLE 草稿头）
+  sha256_prefix8: 63371d94                # 清单摘要：logs/01_hardware_driver/weights.sha256（18 个分片、config.json、tokenizer 与对话模板等逐文件 sha256）本身的 sha256 前 8 位；首分片 61cf64c4
+  precision: 权重 INT8（逐通道）/ 激活 INT8（逐 token）/ KV cache BF16 / 计算 BF16
+run:
+  launch_script: scripts/run.sh       # 完整启动参数见其中 COMMON 数组与末尾 exec 行；启动日志 logs/02_server_launch/
+  launch_command: "python3 -m sglang.launch_server --model-path /models/q38 --served-model-name qwen38 --host 0.0.0.0 --port 30000 --tp-size 2 --dtype bfloat16 --quantization w8a8_int8 --kv-cache-dtype auto --attention-backend fa3 --mm-attention-backend fa3 --page-size 64 --disable-custom-all-reduce --mem-fraction-static 0.80 --cuda-graph-max-bs 64 --context-length 131072 --reasoning-parser qwen3 --speculative-algorithm EAGLE --speculative-num-steps 3 --speculative-eagle-topk 1 --speculative-num-draft-tokens 4 --mamba-scheduler-strategy no_buffer --disable-radix-cache --chunked-prefill-size 4096"   # 与 logs/02_server_launch/server.log 第二行逐字一致
+  parallel: TP=2
+  speculative: EAGLE，num_steps 3 / topk 1 / num_draft_tokens 4（官方 K100 基线未开投机；本参数取自作品提交区公开作品 codingmiao 的启动配置，比赛期间未调整）
+  key_sglang_args: --page-size 64 --disable-custom-all-reduce --mamba-scheduler-strategy no_buffer --disable-radix-cache --chunked-prefill-size 4096 --mem-fraction-static 0.80 --cuda-graph-max-bs 64 --context-length 131072
+  key_env: GPU_MAX_HW_QUEUES=2 HSA_FORCE_FINE_GRAIN_PCIE=1 + run.sh 中 23 项优化开关（默认全开，逐项见报告 §1；`Q38_DRYRUN=1 bash scripts/run.sh` 打印展开后的全部环境变量与启动命令）
+collection:
+  benchmark_script: 官方 benchmark.py（赛题提供，bench/benchmark.py，未改动）+ sglang.bench_serving（ShareGPT，官方 4.2 命令）
+  summary_script: bench/sla.py（按主办方 10-04 口径：SLA 取正式轮逐请求均值；吞吐取各正式轮均值）
+  fixed_length:
+    input_lengths: [4096, 65536]
+    output_length: 1024
+    concurrency_4k: [1, 8, 16, 32, 64, 128]
+    concurrency_64k: [1, 8, 16, 32]
+    seed: 官方默认
+    warmup_rounds: 2
+    measure_rounds: 3
+    sla: 4K TTFT<10s 且 TPOT<80ms；64K TTFT<30s 且 TPOT<100ms（均值）
+  sharegpt:
+    num_prompts: 1000
+    rounds: 3
+    concurrency: [1, 4, 16, 32, 64]
+    seed: 20260912
+    warmup_requests: 64
+accuracy:
+  script: bench/acc_eval.py（思考开，temperature 0.6 / top_p 0.95 / top_k 20，每题按 id 固定种子）
+  tasks: [GSM8K test 1319, LiveCodeBench v6 test6, RealWorldQA 765, MathVision testmini 304]
+  comparison: 同机同镜像、厂商默认配置（Q38_BASELINE=1）逐题配对对比，四项均不低于默认配置；逐题原始记录 logs/06_accuracy/
+  results: {gsm8k: 97.57, realworldqa: 83.79, mathvision: 85.53, livecodebench_v6: 79.43}          # 截断题以 81920 token 上限重跑后；默认配置同脚本：96.97 / 82.61 / 82.89 / 69.71（报告 §4.3）
+kernel_build: 镜像内 hipcc（DTK 26.04）-O3 --offload-arch=gfx928，见 scripts/build_kernels.sh

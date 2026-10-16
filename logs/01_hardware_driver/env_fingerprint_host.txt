@@ -1,0 +1,10 @@
+## 宿主 Sun Oct 11 01:16:43 CST 2026
+5.15.0-119-generic
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+harbor.sourcefind.cn:5443/dcu/admin/base/sglang:0.5.12-ubuntu22.04-dtk2604-py3.10
+["/opt/hyhal:/opt/hyhal:ro","/root/ssb/qwen38:/workspace/q38","/models/Qwen3.8-27B-Channel-INT8-w8a8:/models/q38:ro"]
+hycu                 2793472  106
+hycu_sched             45056  1 hycu
+6.3.30-V1.4.1a
+/dev/nvme0n1p3  1.7T  1.6T   29G  99% /
+/dev/nvme0n1p3  1.7T  1.6T   29G  99% /

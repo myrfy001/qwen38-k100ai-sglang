@@ -1,0 +1,8 @@
+# 运行时依赖全部由官方镜像 sglang:0.5.12-ubuntu22.04-dtk2604-py3.10 自带，未升级、未替换任何包（版本以 logs/01_hardware_driver/pip_list.txt 为准）：
+#   sglang==0.5.12+das185.dtk2604.torch2100   sglang-kernel==0.4.2.post2+das185   torch==2.10.0+das.opt1.dtk2604
+#   triton==3.6.0+das185.dtk2604   lightop==0.6.0+das.dtk2604   aiter==0.1.5+das185.dtk2604   flash_attn==2.8.3+das185.dtk2604
+#   vllm-hcu==0.21.0+das.dtk2604   transformers==5.6.0   requests==2.34.2   datasets==5.0.1
+# 自写内核用镜像内 hipcc（DTK 26.04，dcc 25.10.0）编译，无额外依赖。
+# 以下两包仅精度评测（bench/acc_eval.py）需要，服务与压测不需要：
+math-verify==0.9.0
+pyarrow==25.0.1

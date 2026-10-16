@@ -1,0 +1,13 @@
+{
+  "base_url": "http://127.0.0.1:30000",
+  "concurrency": 64,
+  "input_len": 4096,
+  "measure_rounds": 3,
+  "model": "qwen38",
+  "output_dir": "/workspace/q38/submit/logs/03_benchmark_raw/final/4096_c64",
+  "output_len": 1024,
+  "requests_per_round": 128,
+  "seed": 20260912,
+  "timeout": 3600,
+  "warmup_rounds": 2
+}

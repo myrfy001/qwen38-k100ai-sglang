@@ -1,0 +1,10 @@
+in=4096   c=1    吞吐=   77.45 TTFT均值=  1.127s p95=  1.145s TPOT均值=  11.83ms p95=  14.20ms SLA=过 轮=3 请求=24 状态=PASS,PASS,PASS
+in=4096   c=8    吞吐=  287.24 TTFT均值=  2.875s p95=  6.979s TPOT均值=  23.15ms p95=  30.76ms SLA=过 轮=3 请求=48 状态=PASS,PASS,PASS
+in=4096   c=16   吞吐=  404.05 TTFT均值=  4.866s p95= 13.143s TPOT均值=  32.16ms p95=  46.20ms SLA=过 轮=3 请求=96 状态=PASS,PASS,PASS
+in=4096   c=32   吞吐=  502.76 TTFT均值=  8.437s p95= 25.280s TPOT均值=  51.62ms p95=  79.52ms SLA=过 轮=3 请求=192 状态=PASS,PASS,PASS
+in=4096   c=64   吞吐=  550.85 TTFT均值= 33.555s p95= 85.005s TPOT均值=  72.67ms p95= 110.85ms SLA=不过 轮=3 请求=384 状态=PASS,PASS,PASS
+in=4096   c=128  吞吐=  555.28 TTFT均值=120.129s p95=186.781s TPOT均值=  78.27ms p95= 108.20ms SLA=不过 轮=3 请求=768 状态=PASS,PASS,PASS
+in=65536  c=1    吞吐=   31.17 TTFT均值= 17.929s p95= 17.975s TPOT均值=  14.58ms p95=  17.29ms SLA=过 轮=3 请求=24 状态=PASS,PASS,PASS
+in=65536  c=8    吞吐=   45.76 TTFT均值= 52.277s p95=136.039s TPOT均值= 121.45ms p95= 215.98ms SLA=不过 轮=3 请求=48 状态=PASS,PASS,PASS
+in=65536  c=16   吞吐=   49.05 TTFT均值= 99.483s p95=266.546s TPOT均值= 220.02ms p95= 414.98ms SLA=不过 轮=3 请求=96 状态=PASS,PASS,PASS
+in=65536  c=32   吞吐=   49.69 TTFT均值=343.226s p95=562.885s TPOT均值= 249.07ms p95= 408.27ms SLA=不过 轮=3 请求=192 状态=PASS,PASS,PASS

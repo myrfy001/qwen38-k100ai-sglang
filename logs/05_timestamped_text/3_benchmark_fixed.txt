@@ -1,0 +1,54 @@
+[2026-10-13 19:09:30 CST] $ ls -l --time-style=+%F_%T /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/*.log /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/*/round-*/summary.json
+-rw-r--r-- 1 root root 4512 2026-10-13_09:59:44 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c1.log
+-rw-r--r-- 1 root root 1178 2026-10-13_09:56:13 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c1/round-01/summary.json
+-rw-r--r-- 1 root root 1180 2026-10-13_09:58:01 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c1/round-02/summary.json
+-rw-r--r-- 1 root root 1182 2026-10-13_09:59:44 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c1/round-03/summary.json
+-rw-r--r-- 1 root root 4530 2026-10-13_11:05:21 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c128.log
+-rw-r--r-- 1 root root 1191 2026-10-13_10:49:31 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c128/round-01/summary.json
+-rw-r--r-- 1 root root 1191 2026-10-13_10:57:26 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c128/round-02/summary.json
+-rw-r--r-- 1 root root 1183 2026-10-13_11:05:21 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c128/round-03/summary.json
+-rw-r--r-- 1 root root 4502 2026-10-13_10:08:59 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c16.log
+-rw-r--r-- 1 root root 1177 2026-10-13_10:06:16 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c16/round-01/summary.json
+-rw-r--r-- 1 root root 1178 2026-10-13_10:07:36 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c16/round-02/summary.json
+-rw-r--r-- 1 root root 1178 2026-10-13_10:08:59 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c16/round-03/summary.json
+-rw-r--r-- 1 root root 4465 2026-10-13_10:17:42 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c32.log
+-rw-r--r-- 1 root root 1167 2026-10-13_10:13:21 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c32/round-01/summary.json
+-rw-r--r-- 1 root root 1172 2026-10-13_10:15:33 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c32/round-02/summary.json
+-rw-r--r-- 1 root root 1173 2026-10-13_10:17:42 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c32/round-03/summary.json
+-rw-r--r-- 1 root root 4514 2026-10-13_10:33:45 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c64.log
+-rw-r--r-- 1 root root 1183 2026-10-13_10:25:46 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c64/round-01/summary.json
+-rw-r--r-- 1 root root 1182 2026-10-13_10:29:44 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c64/round-02/summary.json
+-rw-r--r-- 1 root root 1186 2026-10-13_10:33:45 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c64/round-03/summary.json
+-rw-r--r-- 1 root root 4493 2026-10-13_10:03:31 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c8.log
+-rw-r--r-- 1 root root 1178 2026-10-13_10:01:36 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c8/round-01/summary.json
+-rw-r--r-- 1 root root 1176 2026-10-13_10:02:35 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c8/round-02/summary.json
+-rw-r--r-- 1 root root 1173 2026-10-13_10:03:31 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/4096_c8/round-03/summary.json
+-rw-r--r-- 1 root root 4498 2026-10-13_11:19:33 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c1.log
+-rw-r--r-- 1 root root 1178 2026-10-13_11:10:44 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c1/round-01/summary.json
+-rw-r--r-- 1 root root 1177 2026-10-13_11:15:08 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c1/round-02/summary.json
+-rw-r--r-- 1 root root 1174 2026-10-13_11:19:33 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c1/round-03/summary.json
+-rw-r--r-- 1 root root 4507 2026-10-13_12:28:27 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c16.log
+-rw-r--r-- 1 root root 1184 2026-10-13_12:06:03 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c16/round-01/summary.json
+-rw-r--r-- 1 root root 1182 2026-10-13_12:17:14 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c16/round-02/summary.json
+-rw-r--r-- 1 root root 1176 2026-10-13_12:28:27 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c16/round-03/summary.json
+-rw-r--r-- 1 root root 4500 2026-10-13_13:56:52 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c32.log
+-rw-r--r-- 1 root root 1178 2026-10-13_13:12:46 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c32/round-01/summary.json
+-rw-r--r-- 1 root root 1180 2026-10-13_13:34:50 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c32/round-02/summary.json
+-rw-r--r-- 1 root root 1175 2026-10-13_13:56:52 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c32/round-03/summary.json
+-rw-r--r-- 1 root root 4519 2026-10-13_11:43:36 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c8.log
+-rw-r--r-- 1 root root 1183 2026-10-13_11:31:35 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c8/round-01/summary.json
+-rw-r--r-- 1 root root 1184 2026-10-13_11:37:38 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c8/round-02/summary.json
+-rw-r--r-- 1 root root 1182 2026-10-13_11:43:36 /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/65536_c8/round-03/summary.json
+
+[2026-10-13 19:09:30 CST] $ cat /root/ssb/q38clean/submit/logs/03_benchmark_raw/final/sla.txt
+in=4096   c=1    吞吐=   77.45 TTFT均值=  1.127s p95=  1.145s TPOT均值=  11.83ms p95=  14.20ms SLA=过 轮=3 请求=24 状态=PASS,PASS,PASS
+in=4096   c=8    吞吐=  287.24 TTFT均值=  2.875s p95=  6.979s TPOT均值=  23.15ms p95=  30.76ms SLA=过 轮=3 请求=48 状态=PASS,PASS,PASS
+in=4096   c=16   吞吐=  404.05 TTFT均值=  4.866s p95= 13.143s TPOT均值=  32.16ms p95=  46.20ms SLA=过 轮=3 请求=96 状态=PASS,PASS,PASS
+in=4096   c=32   吞吐=  502.76 TTFT均值=  8.437s p95= 25.280s TPOT均值=  51.62ms p95=  79.52ms SLA=过 轮=3 请求=192 状态=PASS,PASS,PASS
+in=4096   c=64   吞吐=  550.85 TTFT均值= 33.555s p95= 85.005s TPOT均值=  72.67ms p95= 110.85ms SLA=不过 轮=3 请求=384 状态=PASS,PASS,PASS
+in=4096   c=128  吞吐=  555.28 TTFT均值=120.129s p95=186.781s TPOT均值=  78.27ms p95= 108.20ms SLA=不过 轮=3 请求=768 状态=PASS,PASS,PASS
+in=65536  c=1    吞吐=   31.17 TTFT均值= 17.929s p95= 17.975s TPOT均值=  14.58ms p95=  17.29ms SLA=过 轮=3 请求=24 状态=PASS,PASS,PASS
+in=65536  c=8    吞吐=   45.76 TTFT均值= 52.277s p95=136.039s TPOT均值= 121.45ms p95= 215.98ms SLA=不过 轮=3 请求=48 状态=PASS,PASS,PASS
+in=65536  c=16   吞吐=   49.05 TTFT均值= 99.483s p95=266.546s TPOT均值= 220.02ms p95= 414.98ms SLA=不过 轮=3 请求=96 状态=PASS,PASS,PASS
+in=65536  c=32   吞吐=   49.69 TTFT均值=343.226s p95=562.885s TPOT均值= 249.07ms p95= 408.27ms SLA=不过 轮=3 请求=192 状态=PASS,PASS,PASS
+

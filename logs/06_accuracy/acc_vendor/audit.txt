@@ -1,0 +1,4 @@
+【日志体检】acc_vendor：❌ 2 项 ⚠ 1 项；补丁已安装 0 个、有生效标记 0 个；压测行 0
+❌ 显存 160 行，首条：[2026-10-11 13:32:25 TP1] KV cache pool is full. Retract requests. #retracted_reqs: 1, #new_tokens_gained: 1536, #mamba_num_gained: 3, #new_token_ratio: 0.0980 
+⚠ 调度退让 160 行，首条：[2026-10-11 13:32:25 TP1] KV cache pool is full. Retract requests. #retracted_reqs: 1, #new_tokens_gained: 1536, #mamba_num_gained: 3, #new_token_ratio: 0.0980 
+❌ 配置回落 12 行，首条：Capturing batches (bs=28 avail_mem=17.66 GB):   0%|          | 0/18 [00:00<?, ?it/s][aiter] fused_sigmoid_gating_delta_rule_update_recurrent config not found at

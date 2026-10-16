@@ -1,0 +1,57 @@
+[2026-10-13 19:09:29 CST] $ date
+Tue Oct 13 19:09:29 CST 2026
+
+[2026-10-13 19:09:29 CST] $ /opt/hyhal/bin/hy-smi
+
+================================= System Management Interface ==================================
+================================================================================================
+HCU     Temp     AvgPwr     Perf     PwrCap     VRAM%      HCU%      Mode     
+0       52.0C    134.0W     manual   300.0W     0%         0.0%      Normal   
+1       53.0C    135.0W     manual   300.0W     0%         0.0%      Normal   
+2       52.0C    137.0W     manual   300.0W     97%        0.0%      Normal   
+3       53.0C    131.0W     manual   300.0W     88%        0.0%      Normal   
+================================================================================================
+======================================== End of SMI Log ========================================
+
+
+[2026-10-13 19:09:29 CST] $ /opt/hyhal/bin/hy-smi --showproductname
+
+================================= System Management Interface ==================================
+================================================================================================
+HCU[0]		: Card Series:		 K500SM_AI
+HCU[0]		: Card Vendor:		 Chengdu C-3000 IC Design Co., Ltd.
+HCU[1]		: Card Series:		 K500SM_AI
+HCU[1]		: Card Vendor:		 Chengdu C-3000 IC Design Co., Ltd.
+HCU[2]		: Card Series:		 K500SM_AI
+HCU[2]		: Card Vendor:		 Chengdu C-3000 IC Design Co., Ltd.
+HCU[3]		: Card Series:		 K500SM_AI
+HCU[3]		: Card Vendor:		 Chengdu C-3000 IC Design Co., Ltd.
+================================================================================================
+======================================== End of SMI Log ========================================
+
+
+[2026-10-13 19:09:29 CST] $ /opt/hyhal/bin/hy-smi --showdriverversion
+
+================================= System Management Interface ==================================
+================================================================================================
+Driver Version: 6.3.30-V1.4.1a
+================================================================================================
+======================================== End of SMI Log ========================================
+
+
+[2026-10-13 19:09:29 CST] $ /opt/hyhal/bin/hy-smi --showmeminfo vram | grep -E 'HCU\[[01]\]'
+HCU[0]		: vram Total Memory (MiB): 65520
+HCU[0]		: vram Total Used Memory (MiB): 4
+HCU[1]		: vram Total Memory (MiB): 65520
+HCU[1]		: vram Total Used Memory (MiB): 4
+
+[2026-10-13 19:09:29 CST] $ uname -r
+5.15.0-119-generic
+
+[2026-10-13 19:09:29 CST] $ docker run --rm harbor.sourcefind.cn:5443/dcu/admin/base/sglang:0.5.12-ubuntu22.04-dtk2604-py3.10 python3 -c 'import torch, sglang; print("torch", torch.__version__, "| sglang", sglang.__version__)'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/local/lib/python3.10/dist-packages/torch/__init__.py", line 431, in <module>
+    from torch._C import *  # noqa: F403
+ImportError: librocm_smi64.so.2: cannot open shared object file: No such file or directory
+

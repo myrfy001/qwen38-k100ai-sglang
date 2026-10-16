@@ -1,0 +1,5 @@
+【日志体检】acc_ours：❌ 2 项 ⚠ 2 项；补丁已安装 13 个、有生效标记 13 个；压测行 0
+⚠ [pair_prefill] ⚠ 每块段数 A=# B=#，与 2×64+2 不符：无法按段号识别 MoE 段，此后所有段都不与通信重叠（成对发射不再有收益，但结果安全）（×2）
+❌ 显存 20 行，首条：[2026-10-11 09:36:34 TP0] KV cache pool is full. Retract requests. #retracted_reqs: 1, #new_tokens_gained: 2880, #mamba_num_gained: 1, #new_token_ratio: 0.0980 
+⚠ 调度退让 20 行，首条：[2026-10-11 09:36:34 TP0] KV cache pool is full. Retract requests. #retracted_reqs: 1, #new_tokens_gained: 2880, #mamba_num_gained: 1, #new_token_ratio: 0.0980 
+❌ 配置回落 4 行，首条：[aiter] chunk_fwd_o config not found at /usr/local/lib/python3.10/dist-packages/aiter/ops/triton/configs/chunk_fwd_o/chunk_fwd_o-gfx928.json, using default {'BK

@@ -1,0 +1,4 @@
+[bench] 开始 2026-10-13 09:54:03  目录 /workspace/q38/submit/logs/03_benchmark_raw/final  项目 all
+[bench] 固定长度完成 2026-10-13 13:56:53
+[bench] ShareGPT 完成 2026-10-13 18:58:42
+[bench] 结束 2026-10-13 18:58:42

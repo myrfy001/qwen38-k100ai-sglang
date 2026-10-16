@@ -1,0 +1,94 @@
+
+===== [2026-10-13 09:41:47] 1 起容器（README §1.3 字面）
+6e3c9d559aec4e4dedf3563c9f313fda760219e8b98251de205919fc224804ec
+ls: cannot access '/root/.triton': No such file or directory
+
+===== [2026-10-13 09:41:48] 2 权重校验（README §1.5）
+model-00017-of-00018.safetensors: OK
+model-00018-of-00018.safetensors: OK
+config.json: OK
+
+===== [2026-10-13 09:44:45] 3 数据（README §1.7）
+-rw-r--r-- 1 root root 6987282 Oct 12 11:35 /workspace/q38/datasets/eval/MathLLMs_MathVision/testmini-00000-of-00001-f8ff70fcb2f29b1d.parquet
+-rw-r--r-- 1 root root 134303240 Oct 12 11:35 /workspace/q38/datasets/eval/livecodebench_code_generation_lite/test6.jsonl
+gsm8k_test.jsonl 1319
+[prepare_data] 完成：/workspace/q38/datasets
+
+===== [2026-10-13 09:44:46] 4 构建内核（README §2）
+-rwxr-xr-x 1 root root 23720 Oct 13 09:45 i8gemm_9d215a841eca.so
+[build_kernels] 完成 Tue Oct 13 09:45:54 AM CST 2026
+7
+
+===== [2026-10-13 09:45:54] 5 起服务（README §3）
+[run.sh] 开关：GPU_MAX_HW_QUEUES=2 HSA_FORCE_FINE_GRAIN_PCIE=1 SGLANG_ACT_QUANT=1 SGLANG_ADAPTIVE_CHUNK=1 SGLANG_ADAPTIVE_CHUNK_TIERS=8192:16384 SGLANG_ALLOW_OVERWRITE_LONGER_CONTEXT_LEN=1 SGLANG_CHUNK_H_CFG=1 SGLANG_CONV1D_OWN=1 SGLANG_CONV1D_OWN_SO=/workspace/q38/submit/build/q38_conv1d.so SGLA
+[run.sh] 启动命令：python3 -m sglang.launch_server --model-path /models/q38 --served-model-name qwen38 --host 0.0.0.0 --port 30000 --tp-size 2 --dtype bfloat16 --quantization w8a8_int8 --kv-cache-dtype auto --attention-backend fa3 --mm-attention-backend fa3 --page-size 64 --disable-custom-all-r
+89
+
+===== [2026-10-13 09:51:55] 6 冒烟（README §3）
+  in=4096   c=16   吞吐=  192.04 TTFT均值=  5.130s p95= 13.123s TPOT均值=  60.05ms p95= 104.44ms SLA=过 轮=1 请求=32 状态=PASS
+
+  中文生成: ✅ '快速排序是一种通过选取基准元素将数组划分为两部分（小于和大于基准的元素），并递归地对这两部分进行排序的高效分治算法。' (stop)
+  gsm8k 10 题: ✅ 10/10  截断 0
+
+  【对不对】✅ 通过
+  用时 127 秒
+==============================================================================
+退出码 0
+
+===== [2026-10-13 09:54:02] 7 体检（README §3）
+【日志体检】02_server_launch：❌ 1 项 ⚠ 1 项；补丁已安装 20 个、有生效标记 18 个；压测行 0
+⚠ 补丁 [adaptive_chunk] 已安装 4 次但从未「首次真正生效」
+❌ 配置回落 4 行，首条：[aiter] chunk_fwd_o config not found at /usr/local/lib/python3.10/dist-packages/aiter/ops/triton/configs/chunk_fwd_o/chunk_fwd_o-gfx928.json, using default {'BK
+
+===== [2026-10-13 09:54:03] 8 全表（README §4 字面：bench.sh all）
+sharegpt c=64 轮1 N=1000 输出吞吐=473.95 TTFT均值=7051.08ms TPOT均值=114.54ms 成功=1000 接受长度=3.14
+sharegpt c=64 轮2 N=1000 输出吞吐=474.59 TTFT均值=7042.72ms TPOT均值=114.32ms 成功=1000 接受长度=3.13
+sharegpt c=64 轮3 N=1000 输出吞吐=474.86 TTFT均值=7037.32ms TPOT均值=114.27ms 成功=1000 接受长度=3.12
+[bench] ShareGPT 完成 2026-10-13 18:58:42
+[bench] 结束 2026-10-13 18:58:42
+in=4096   c=1    吞吐=   77.45 TTFT均值=  1.127s p95=  1.145s TPOT均值=  11.83ms p95=  14.20ms SLA=过 轮=3 请求=24 状态=PASS,PASS,PASS
+in=4096   c=8    吞吐=  287.24 TTFT均值=  2.875s p95=  6.979s TPOT均值=  23.15ms p95=  30.76ms SLA=过 轮=3 请求=48 状态=PASS,PASS,PASS
+in=4096   c=16   吞吐=  404.05 TTFT均值=  4.866s p95= 13.143s TPOT均值=  32.16ms p95=  46.20ms SLA=过 轮=3 请求=96 状态=PASS,PASS,PASS
+in=4096   c=32   吞吐=  502.76 TTFT均值=  8.437s p95= 25.280s TPOT均值=  51.62ms p95=  79.52ms SLA=过 轮=3 请求=192 状态=PASS,PASS,PASS
+in=4096   c=64   吞吐=  550.85 TTFT均值= 33.555s p95= 85.005s TPOT均值=  72.67ms p95= 110.85ms SLA=不过 轮=3 请求=384 状态=PASS,PASS,PASS
+in=4096   c=128  吞吐=  555.28 TTFT均值=120.129s p95=186.781s TPOT均值=  78.27ms p95= 108.20ms SLA=不过 轮=3 请求=768 状态=PASS,PASS,PASS
+in=65536  c=1    吞吐=   31.17 TTFT均值= 17.929s p95= 17.975s TPOT均值=  14.58ms p95=  17.29ms SLA=过 轮=3 请求=24 状态=PASS,PASS,PASS
+in=65536  c=8    吞吐=   45.76 TTFT均值= 52.277s p95=136.039s TPOT均值= 121.45ms p95= 215.98ms SLA=不过 轮=3 请求=48 状态=PASS,PASS,PASS
+in=65536  c=16   吞吐=   49.05 TTFT均值= 99.483s p95=266.546s TPOT均值= 220.02ms p95= 414.98ms SLA=不过 轮=3 请求=96 状态=PASS,PASS,PASS
+in=65536  c=32   吞吐=   49.69 TTFT均值=343.226s p95=562.885s TPOT均值= 249.07ms p95= 408.27ms SLA=不过 轮=3 请求=192 状态=PASS,PASS,PASS
+sharegpt c=1 轮1 N=1000 输出吞吐=64.46 TTFT均值=373.98ms TPOT均值=15.39ms 成功=1000 接受长度=3.37
+sharegpt c=1 轮2 N=1000 输出吞吐=64.82 TTFT均值=357.26ms TPOT均值=15.40ms 成功=1000 接受长度=3.33
+sharegpt c=1 轮3 N=1000 输出吞吐=64.90 TTFT均值=356.41ms TPOT均值=15.37ms 成功=1000 接受长度=3.30
+sharegpt c=4 轮1 N=1000 输出吞吐=170.51 TTFT均值=369.71ms TPOT均值=24.80ms 成功=1000 接受长度=3.28
+sharegpt c=4 轮2 N=1000 输出吞吐=170.35 TTFT均值=371.72ms TPOT均值=24.36ms 成功=1000 接受长度=3.25
+sharegpt c=4 轮3 N=1000 输出吞吐=170.13 TTFT均值=373.87ms TPOT均值=25.47ms 成功=1000 接受长度=3.23
+sharegpt c=16 轮1 N=1000 输出吞吐=326.65 TTFT均值=415.21ms TPOT均值=52.32ms 成功=1000 接受长度=3.21
+sharegpt c=16 轮2 N=1000 输出吞吐=325.00 TTFT均值=414.91ms TPOT均值=53.36ms 成功=1000 接受长度=3.20
+sharegpt c=16 轮3 N=1000 输出吞吐=327.40 TTFT均值=414.12ms TPOT均值=54.20ms 成功=1000 接受长度=3.18
+sharegpt c=32 轮1 N=1000 输出吞吐=398.46 TTFT均值=493.52ms TPOT均值=89.49ms 成功=1000 接受长度=3.17
+sharegpt c=32 轮2 N=1000 输出吞吐=396.99 TTFT均值=496.79ms TPOT均值=89.08ms 成功=1000 接受长度=3.16
+sharegpt c=32 轮3 N=1000 输出吞吐=400.71 TTFT均值=500.88ms TPOT均值=88.49ms 成功=1000 接受长度=3.15
+sharegpt c=64 轮1 N=1000 输出吞吐=473.95 TTFT均值=7051.08ms TPOT均值=114.54ms 成功=1000 接受长度=3.14
+sharegpt c=64 轮2 N=1000 输出吞吐=474.59 TTFT均值=7042.72ms TPOT均值=114.32ms 成功=1000 接受长度=3.13
+sharegpt c=64 轮3 N=1000 输出吞吐=474.86 TTFT均值=7037.32ms TPOT均值=114.27ms 成功=1000 接受长度=3.12
+      2 [act_quant]
+      4 [adaptive_chunk]
+      2 [chunk_h_cfg]
+      2 [conv1d_own]
+     38 [dense_cfg]
+      2 [draft_prune]
+      8 [gdn_pf_cfg]
+      6 [gdn_replay]
+      2 [hcu_ca]
+     32 [lmh_rocblas]
+      4 [norm_quant]
+      6 [pair_loop]
+      4 [pair_prefill]
+      2 [pf_attn]
+      4 [qkv_view]
+      4 [quant_ar]
+      6 [verify_attn]
+      2 [vocab_par_draft]
+      2 [vocab_par_verify]
+0
+[2026-10-13 18:58:45] FINAL_END OK

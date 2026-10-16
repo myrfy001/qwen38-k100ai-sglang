@@ -1,0 +1,2 @@
+【日志体检】02_server_launch：❌ 1 项 ⚠ 0 项；补丁已安装 20 个、有生效标记 19 个；压测行 0
+❌ 配置回落 4 行，首条：[aiter] chunk_fwd_o config not found at /usr/local/lib/python3.10/dist-packages/aiter/ops/triton/configs/chunk_fwd_o/chunk_fwd_o-gfx928.json, using default {'BK
