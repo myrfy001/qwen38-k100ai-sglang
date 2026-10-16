@@ -1,13 +1,13 @@
-# Qwen3.8-27B INT8 在两张 K500SM_AI 上的 SGLang 推理优化 —— 实测报告
+# Qwen3.8-27B INT8 在两张 K100-AI 上的 SGLang 推理优化 —— 实测报告
 
-> 【论坛 ID】myrfy001　【参赛组别】主力组 K500SM_AI　【参选榜单】吞吐榜 + 时延榜（SGLang 赛道）
+> 【论坛 ID】myrfy001　【参赛组别】主力组 K100-AI　【参选榜单】吞吐榜 + 时延榜（SGLang 赛道）
 > 【成绩】4K SLA 最大并发 C32：输出吞吐 **251.38 tok/s/卡**（两卡聚合 502.76），TTFT 均值 **8437 ms**，TPOT 均值 51.62 ms；官方基线同档 71.43 tok/s/卡（聚合 142.864，BF16 权重），提升率 **+252%**。64K SLA 最大并发 C1：15.59 tok/s/卡（聚合 31.17），TTFT 均值 17929 ms，提升率 +315%。
 > 【代码仓库】https://github.com/myrfy001/qwen38-k100ai-sglang　【实测报告】本文　【原始日志】`logs/`（硬件驱动、启动、benchmark 原始输出含 P99、结束统计与时间戳；带时间戳的命令行文本代替截图）
 > 【声明】以上数据均在本声明环境中实测，未伪造、未拼接日志。
 
 ## 1. 环境声明
 
-- **硬件**：卡型 K500SM_AI（gfx928，64 GB/卡；驱动设备名 K500SM_AI）；卡数 2（同机 4 卡，本作品只用卡 0、1；测量期间卡 2、3 有其他用户的负载）；互联 PCIe（`hy-smi --showtopo` 原文见 `logs/01_hardware_driver/topo.txt`：Link Type PCIE，无 xGMI）；CPU Hygon C86 7185 32 核（4 NUMA）；内存 502 GB；存储 NVMe 1.7 TB。
+- **硬件**：卡型 K100-AI（gfx928，64 GB/卡；驱动设备名 K500SM_AI）；卡数 2（同机 4 卡，本作品只用卡 0、1；测量期间卡 2、3 有其他用户的负载）；互联 PCIe（`hy-smi --showtopo` 原文见 `logs/01_hardware_driver/topo.txt`：Link Type PCIE，无 xGMI）；CPU Hygon C86 7185 32 核（4 NUMA）；内存 502 GB；存储 NVMe 1.7 TB。
 - **软件**：OS Ubuntu 22.04.5 / 内核 5.15.0-119；驱动 hycu 6.3.30-V1.4.1a；DTK 26.04；容器镜像 `harbor.sourcefind.cn:5443/dcu/admin/base/sglang:0.5.12-ubuntu22.04-dtk2604-py3.10`（官方，未改动）。
 - **框架**：SGLang 0.5.12，DAS 版本 das185（`0.5.12+das185.dtk2604`，镜像自带，源码未改；全部优化以 PYTHONPATH 覆盖层补丁形式加载）；关键依赖 torch 2.10.0+das、triton 3.6.0+das185、sglang-kernel 0.4.2.post2、lightop 0.6.0、aiter 0.1.5、flash_attn 2.8.3、vllm-hcu 0.21.0；容器内完整包列表见 `logs/01_hardware_driver/pip_list.txt`。
 - **模型**：Qwen3.8-27B-Channel-INT8-w8a8（光合官方发布，含 EAGLE 草稿头）；权重、tokenizer 与对话模板的逐文件 sha256 见 `logs/01_hardware_driver/weights.sha256`；精度 INT8 权重（逐通道）+ INT8 激活（逐 token）+ BF16 KV cache。
@@ -30,7 +30,7 @@
 
 ## 2. 基线对比
 
-官方 K500SM_AI / SGLang 0.5.12 基线（基线帖 09-19，TP2，BF16 权重，未开投机解码）与本作品（TP2，INT8 权重，EAGLE）的输出吞吐。基线帖的数字是两卡聚合值，本表同样给聚合值，括号内为每卡值（÷2）。
+官方 K100-AI / SGLang 0.5.12 基线（基线帖 09-19，TP2，BF16 权重，未开投机解码）与本作品（TP2，INT8 权重，EAGLE）的输出吞吐。基线帖的数字是两卡聚合值，本表同样给聚合值，括号内为每卡值（÷2）。
 
 | 测点 | 官方基线 | 本作品 | 提升率 | SLA |
 |---|--:|--:|--:|---|
@@ -310,7 +310,7 @@ SLA 最大并发（均值口径）：本作品 4K **32** / 64K **1**；官方基
 ## 5. 结论与适用边界
 
 - **结论**：不改镜像与框架源码，以运行时补丁、调优表、5 个自写 HIP 内核和若干 Triton 融合核实现。SLA 最大并发 4K 32、64K 1（官方基线帖 0 / 0）；4K C32 吞吐 142.864→502.76（+252%，含 BF16→INT8 权重之差；对同机 INT8 镜像默认配置为 269.5→502.76）；ShareGPT 五档 +96%～+741%；精度四项与镜像默认配置配对，未测出损失。
-- **适用范围**：K500SM_AI（gfx928）× TP2 × 本镜像；Qwen3.8-27B INT8 w8a8 + EAGLE 投机解码。自写内核按 gfx928 编译，其他卡型需重新编译并重新对拍；TP 改变时 GEMM 选解表的 M 档与通信方案需重新扫描。含图片的请求（视觉编码器有额外的 all-reduce）不参与成对预填充，按普通路径执行，不影响同时在跑的纯文本请求。
+- **适用范围**：K100-AI（gfx928）× TP2 × 本镜像；Qwen3.8-27B INT8 w8a8 + EAGLE 投机解码。自写内核按 gfx928 编译，其他卡型需重新编译并重新对拍；TP 改变时 GEMM 选解表的 M 档与通信方案需重新扫描。含图片的请求（视觉编码器有额外的 all-reduce）不参与成对预填充，按普通路径执行，不影响同时在跑的纯文本请求。
 - **数值一致性**：与原实现不逐位一致的有以下几项，其余各项逐位一致。组合精度配对见 §4.3。
   1. 预填充 int8 分组量化通信（有损量化，唯一有损项）；
   2. GDN 验证核 T≥64 的 BV8/w4 配置（求和次序不同，状态相对误差约 1e-4）；
